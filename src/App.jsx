@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Dashboard from "./pages/Dashboard";
-import Inventory from "./pages/Inventory";
-import NotFound from "./pages/NotFound";
+import Login from "./pages/login";
+import Signup from "./pages/signup";
+import Dashboard from "./pages/dashboard";
+import Inventory from "./pages/inventory";
+import NotFound from "./pages/notfound";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 

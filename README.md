@@ -1,16 +1,23 @@
-# React + Vite
+# Mini Inventory Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Local setup
 
-Currently, two official plugins are available:
+1. Copy `.env.example` to `.env`.
+2. Set `VITE_API_BASE_URL` to the backend API base URL, including `/api`.
+3. Run `npm install` and `npm run dev`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Deploy to Render
 
-## React Compiler
+This repository includes `render.yaml`, which creates a Render Static Site. It
+builds the React app and rewrites all routes to `index.html` so React Router
+works on direct visits to `/dashboard` and `/inventory`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Create the backend service and database first. Then create a Blueprint from
+this repository in Render. When prompted for `VITE_API_BASE_URL`, enter the
+backend's public URL with `/api`, for example:
 
-## Expanding the ESLint configuration
+`https://mini-inventory-api.onrender.com/api`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+`VITE_` variables are compiled into the frontend build, so do not put secrets
+in this variable. The backend must allow CORS requests from the frontend's
+`https://*.onrender.com` URL (or the exact deployed frontend URL).
